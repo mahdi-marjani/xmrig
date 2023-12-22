@@ -1,0 +1,127 @@
+Performing C SOURCE FILE Test FEATURE_ssse3_NOFLAG failed with the following output:
+Change Dir: /workspaces/xmrig/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_cf9ad/fast && /usr/bin/make -f CMakeFiles/cmTC_cf9ad.dir/build.make CMakeFiles/cmTC_cf9ad.dir/build
+make[1]: Entering directory '/workspaces/xmrig/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cf9ad.dir/src.c.o
+/usr/bin/cc   -Wall -Wno-strict-aliasing -maes -DFEATURE_ssse3_NOFLAG   -o CMakeFiles/cmTC_cf9ad.dir/src.c.o   -c /workspaces/xmrig/build/CMakeFiles/CMakeTmp/src.c
+In file included from /usr/lib/gcc/x86_64-linux-gnu/9/include/immintrin.h:35,
+                 from /usr/lib/gcc/x86_64-linux-gnu/9/include/x86intrin.h:32,
+                 from /workspaces/xmrig/build/CMakeFiles/CMakeTmp/src.c:1:
+/workspaces/xmrig/build/CMakeFiles/CMakeTmp/src.c: In function ‘function_ssse3’:
+/usr/lib/gcc/x86_64-linux-gnu/9/include/tmmintrin.h:136:1: error: inlining failed in call to always_inline ‘_mm_shuffle_epi8’: target specific option mismatch
+  136 | _mm_shuffle_epi8 (__m128i __X, __m128i __Y)
+      | ^~~~~~~~~~~~~~~~
+/workspaces/xmrig/build/CMakeFiles/CMakeTmp/src.c:5:12: note: called from here
+    5 |     *dst = _mm_shuffle_epi8(*a, *b);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_cf9ad.dir/build.make:66: CMakeFiles/cmTC_cf9ad.dir/src.c.o] Error 1
+make[1]: Leaving directory '/workspaces/xmrig/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_cf9ad/fast] Error 2
+
+
+Source file was:
+#include <x86intrin.h>
+
+void function_ssse3(__m128i *dst, const __m128i *a, const __m128i *b)
+{
+    *dst = _mm_shuffle_epi8(*a, *b);
+}
+
+int main(void) { return 0; }
+
+Performing C SOURCE FILE Test FEATURE_xop_NOFLAG failed with the following output:
+Change Dir: /workspaces/xmrig/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b1314/fast && /usr/bin/make -f CMakeFiles/cmTC_b1314.dir/build.make CMakeFiles/cmTC_b1314.dir/build
+make[1]: Entering directory '/workspaces/xmrig/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b1314.dir/src.c.o
+/usr/bin/cc   -Wall -Wno-strict-aliasing -maes -DFEATURE_xop_NOFLAG   -o CMakeFiles/cmTC_b1314.dir/src.c.o   -c /workspaces/xmrig/build/CMakeFiles/CMakeTmp/src.c
+In file included from /usr/lib/gcc/x86_64-linux-gnu/9/include/x86intrin.h:38,
+                 from /workspaces/xmrig/build/CMakeFiles/CMakeTmp/src.c:1:
+/workspaces/xmrig/build/CMakeFiles/CMakeTmp/src.c: In function ‘function_xop’:
+/workspaces/xmrig/build/CMakeFiles/CMakeTmp/src.c:5:12: error: ‘__builtin_ia32_vprotqi’ needs isa option -mxop
+    5 |     *dst = _mm_roti_epi64(*a, b);
+      |            ^~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_b1314.dir/build.make:66: CMakeFiles/cmTC_b1314.dir/src.c.o] Error 1
+make[1]: Leaving directory '/workspaces/xmrig/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_b1314/fast] Error 2
+
+
+Source file was:
+#include <x86intrin.h>
+
+void function_xop(__m128i *dst, const __m128i *a, int b)
+{
+    *dst = _mm_roti_epi64(*a, b);
+}
+
+int main(void) { return 0; }
+
+Performing C SOURCE FILE Test FEATURE_avx2_NOFLAG failed with the following output:
+Change Dir: /workspaces/xmrig/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_904d9/fast && /usr/bin/make -f CMakeFiles/cmTC_904d9.dir/build.make CMakeFiles/cmTC_904d9.dir/build
+make[1]: Entering directory '/workspaces/xmrig/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_904d9.dir/src.c.o
+/usr/bin/cc   -Wall -Wno-strict-aliasing -maes -DFEATURE_avx2_NOFLAG   -o CMakeFiles/cmTC_904d9.dir/src.c.o   -c /workspaces/xmrig/build/CMakeFiles/CMakeTmp/src.c
+/workspaces/xmrig/build/CMakeFiles/CMakeTmp/src.c: In function ‘function_avx2’:
+/workspaces/xmrig/build/CMakeFiles/CMakeTmp/src.c:5:10: warning: AVX vector return without AVX enabled changes the ABI [-Wpsabi]
+    5 |     *dst = _mm256_xor_si256(*a, *b);
+      |     ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/lib/gcc/x86_64-linux-gnu/9/include/immintrin.h:53,
+                 from /usr/lib/gcc/x86_64-linux-gnu/9/include/x86intrin.h:32,
+                 from /workspaces/xmrig/build/CMakeFiles/CMakeTmp/src.c:1:
+/usr/lib/gcc/x86_64-linux-gnu/9/include/avx2intrin.h:913:1: error: inlining failed in call to always_inline ‘_mm256_xor_si256’: target specific option mismatch
+  913 | _mm256_xor_si256 (__m256i __A, __m256i __B)
+      | ^~~~~~~~~~~~~~~~
+/workspaces/xmrig/build/CMakeFiles/CMakeTmp/src.c:5:12: note: called from here
+    5 |     *dst = _mm256_xor_si256(*a, *b);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_904d9.dir/build.make:66: CMakeFiles/cmTC_904d9.dir/src.c.o] Error 1
+make[1]: Leaving directory '/workspaces/xmrig/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_904d9/fast] Error 2
+
+
+Source file was:
+#include <x86intrin.h>
+
+void function_avx2(__m256i *dst, const __m256i *a, const __m256i *b)
+{
+    *dst = _mm256_xor_si256(*a, *b);
+}
+
+int main(void) { return 0; }
+
+Performing C SOURCE FILE Test FEATURE_avx512f_NOFLAG failed with the following output:
+Change Dir: /workspaces/xmrig/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_19faa/fast && /usr/bin/make -f CMakeFiles/cmTC_19faa.dir/build.make CMakeFiles/cmTC_19faa.dir/build
+make[1]: Entering directory '/workspaces/xmrig/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_19faa.dir/src.c.o
+/usr/bin/cc   -Wall -Wno-strict-aliasing -maes -DFEATURE_avx512f_NOFLAG   -o CMakeFiles/cmTC_19faa.dir/src.c.o   -c /workspaces/xmrig/build/CMakeFiles/CMakeTmp/src.c
+In file included from /usr/lib/gcc/x86_64-linux-gnu/9/include/immintrin.h:55,
+                 from /usr/lib/gcc/x86_64-linux-gnu/9/include/x86intrin.h:32,
+                 from /workspaces/xmrig/build/CMakeFiles/CMakeTmp/src.c:1:
+/workspaces/xmrig/build/CMakeFiles/CMakeTmp/src.c: In function ‘function_avx512f’:
+/usr/lib/gcc/x86_64-linux-gnu/9/include/avx512fintrin.h:204:1: error: inlining failed in call to always_inline ‘_mm512_undefined_epi32’: target specific option mismatch
+  204 | _mm512_undefined_epi32 (void)
+      | ^~~~~~~~~~~~~~~~~~~~~~
+/workspaces/xmrig/build/CMakeFiles/CMakeTmp/src.c:5:12: note: called from here
+    5 |     *dst = _mm512_ror_epi64(*a, 57);
+      |            ^~~~~~~~~~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_19faa.dir/build.make:66: CMakeFiles/cmTC_19faa.dir/src.c.o] Error 1
+make[1]: Leaving directory '/workspaces/xmrig/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_19faa/fast] Error 2
+
+
+Source file was:
+#include <x86intrin.h>
+
+void function_avx512f(__m512i *dst, const __m512i *a)
+{
+    *dst = _mm512_ror_epi64(*a, 57);
+}
+
+int main(void) { return 0; }
+
