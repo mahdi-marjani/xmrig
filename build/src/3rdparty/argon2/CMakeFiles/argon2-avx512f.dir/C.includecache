@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../src/3rdparty/argon2.h
+3rdparty/argon2/include/argon2.h
+../src/3rdparty/3rdparty/argon2/include/argon2.h
+
+../src/3rdparty/argon2/include/argon2.h
+stdint.h
+-
+stddef.h
+-
+stdio.h
+-
+limits.h
+-
+
+../src/3rdparty/argon2/lib/core.h
+3rdparty/argon2.h
+../src/3rdparty/argon2/lib/3rdparty/argon2.h
+
+/workspaces/xmrig/src/3rdparty/argon2/arch/x86_64/lib/argon2-avx512f.c
+argon2-avx512f.h
+/workspaces/xmrig/src/3rdparty/argon2/arch/x86_64/lib/argon2-avx512f.h
+stdint.h
+-
+string.h
+-
+x86intrin.h
+-
+intrin.h
+-
+
+/workspaces/xmrig/src/3rdparty/argon2/arch/x86_64/lib/argon2-avx512f.h
+core.h
+/workspaces/xmrig/src/3rdparty/argon2/arch/x86_64/lib/core.h
+
